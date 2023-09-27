@@ -110,7 +110,7 @@ namespace SocialNetwork
                         Console.Write("Ваша Фамилия:");
                         userRegistratiionData.LastName = Console.ReadLine();
                         Console.Write("Пароль:");
-                        userRegistratiionData.LastName = Console.ReadLine();
+                        userRegistratiionData.Password = Console.ReadLine();
                         Console.Write("Почтовый адрес:");
                         userRegistratiionData.Email = Console.ReadLine();
                         
