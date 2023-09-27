@@ -56,7 +56,29 @@ namespace SocialNetwork.BLL.Services
 
             return ConstructUserModel(findUserEntity);
         }
+        public User FindByEmail(string email) 
+        {
+            var findUserEntity = userRepository.FindByEmail(email);
+            if (findUserEntity is null) throw new UserNotFoundException();
 
+            return ConstructUserModel(findUserEntity);
+        }
+        public void Update(User user)
+        {
+            var updatableUserEntity = new UserEntity()
+            {
+                id = user.Id,
+                firstname = user.FirstName,
+                lastname = user.LastName,
+                password = user.Password,
+                email = user.Email,
+                photo = user.Photo,
+                favorite_movie = user.FavoriteMovie,
+                favorite_book = user.FavoriteBook
+            };
+            if(this.userRepository.Update(updatableUserEntity) == 0) 
+                throw new Exception();
+        }
         private User ConstructUserModel(UserEntity userEntity)
         {
             return new User(
