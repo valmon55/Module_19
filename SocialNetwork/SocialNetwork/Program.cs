@@ -9,10 +9,10 @@ namespace SocialNetwork
         static void Main(string[] args)
         {
             Console.WriteLine("Добро пожаловать в социальную сеть!");
-            Console.WriteLine("Для регистрации пользователя введите имя пользователя:");
 
             while (true)
             {
+                Console.WriteLine("Для регистрации пользователя введите имя пользователя:");
                 string firstName = Console.ReadLine();
                 Console.Write("фамилия:");
                 string lastName = Console.ReadLine();
@@ -33,12 +33,14 @@ namespace SocialNetwork
                     userService.Register(userRegistratiionData);
                     Console.WriteLine("Регистрация прошла успешно.");
                 }
-                catch (ArgumentNullException)
+                catch (ArgumentNullException e)
                 {
+                    Console.WriteLine(e.Message);
                     Console.WriteLine("Введите корректое значение!");
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Console.WriteLine(e.Message);
                     Console.WriteLine("Произошла ошибка при регистрации!");
                 }
 
