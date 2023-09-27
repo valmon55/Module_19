@@ -14,7 +14,7 @@
 *.userprefs
 
 # DB files
-*.db
+social_network_bd.db
 
 # Mono auto generated files
 mono_crash.*
