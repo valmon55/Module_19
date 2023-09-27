@@ -47,5 +47,29 @@ namespace SocialNetwork.BLL.Services
             if( this.userRepository.Create(userEntity) == 0)
                 throw new Exception();
         }
+        public User Authenticate(UserAuthenticationData userAuthenticationData)
+        {
+            var findUserEntity = userRepository.FindByEmail(userAuthenticationData.Email);
+
+            if(findUserEntity is null) throw new UserNotFoundException();   
+            if(findUserEntity.password != userAuthenticationData.Password) throw new WrongPasswordException();
+
+            return ConstructUserModel(findUserEntity);
+        }
+
+        private User ConstructUserModel(UserEntity userEntity)
+        {
+            return new User(
+                userEntity.id,
+                userEntity.firstname,
+                userEntity.lastname,
+                userEntity.password,
+                userEntity.email,
+                userEntity.photo,
+                userEntity.favorite_movie,
+                userEntity.favorite_book
+                );
+
+        }
     }
 }
