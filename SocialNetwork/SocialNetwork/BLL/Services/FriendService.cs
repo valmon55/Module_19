@@ -14,13 +14,7 @@ namespace SocialNetwork.BLL.Services
     public class FriendService : UserService
     {
         IFriendRepository friendRepository;
-        enum FriendActionType
-        {
-            Add,
-            Remove
-        }
-
-        public FriendService(IFriendRepository friendRepository)
+        public FriendService()
         {
             friendRepository = new FriendRepository();
         }

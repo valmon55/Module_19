@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.PLL.Views
 {
-    public class UserFriendMenuView
+    public class FriendMenuView
     {
         public void Show(User user)
         {
@@ -15,7 +15,7 @@ namespace SocialNetwork.PLL.Views
             {
                 ///Возможно лучше сразу выводить друзей
                 Console.WriteLine("Мои друзья:");
-                Program.userFriendInfoView.Show(user);
+                Program.friendInfoView.Show(user);
                 ///Возможно лучше сразу добавлять и удалять друзей 1-й кнопкой
                 Console.WriteLine("Выберите действие:");
                 Console.WriteLine("* Добавить друга (нажмите 1)");
@@ -26,11 +26,14 @@ namespace SocialNetwork.PLL.Views
                 string keyValue = Console.ReadLine();
 
                 if (keyValue == "3") break;
+
                 switch (keyValue)
                 {
                     case "1":
                         {
-                            Program.userFriendInfoView.Show(user);
+                            Console.WriteLine("Введите почтовый адрес:");
+                            var friendEmail = Console.ReadLine();
+                            Program.friendAddRemoveView.Add(user,friendEmail);
                             break;
                         }
                     case "2":
