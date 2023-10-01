@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.BLL.Services
 {
-    public class FriendService
+    public class FriendService : UserService
     {
+        
     }
 }

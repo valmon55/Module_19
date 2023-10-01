@@ -48,7 +48,7 @@ namespace SocialNetwork.PLL.Views
                         }
                     case "3":
                         {
-                            //Program.userFriendView.
+                            Program.userFriendMenuView.Show(user);
                             break;
                         }
 
