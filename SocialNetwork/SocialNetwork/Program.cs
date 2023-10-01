@@ -19,7 +19,7 @@ namespace SocialNetwork
         public static UserIncomingMessageView userIncomingMessageView;
         public static UserOutcomingMessageView userOutcomingMessageView;
         public static UserFriendMenuView userFriendMenuView;
-        public static UserFriendInfoView userFriendInfoView;
+        public static UserFriendsInfoView userFriendInfoView;
 
         static void Main(string[] args)
         {
@@ -37,7 +37,7 @@ namespace SocialNetwork
             userOutcomingMessageView = new UserOutcomingMessageView();
             ///дорабатываем Друзей
             userFriendMenuView = new UserFriendMenuView();
-            userFriendInfoView = new UserFriendInfoView();
+            userFriendInfoView = new UserFriendsInfoView();
 
             while (true)
             {

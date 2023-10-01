@@ -30,7 +30,7 @@ namespace SocialNetwork.PLL.Views
                 {
                     case "1":
                         {
-                            //Program.userFriendInfoView.Show(user);
+                            Program.userFriendInfoView.Show(user);
                             break;
                         }
                     case "2":
