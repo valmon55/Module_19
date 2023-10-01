@@ -2,6 +2,7 @@
 using SocialNetwork.BLL.Models;
 using SocialNetwork.DAL.Entities;
 using SocialNetwork.DAL.Repositories;
+using SocialNetwork.PLL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -52,8 +53,32 @@ namespace SocialNetwork.BLL.Services
                 user_id = user.Id,
                 friend_id = friend.Id,
             };
-            if(friendRepository.Create(friendEntity) == 0)
+            if (user.Id == friend.Id)
+            {
+                AlertMessage.Show("Добавление себя к себе в друзья не разрешено!");
+            }
+            else
+            {
+                if (friendRepository.Create(friendEntity) == 0)
+                    throw new Exception();
+            }
+        }
+        public void RemoveFriend(User user, string friendEmail)
+        {
+            if (!new EmailAddressAttribute().IsValid(friendEmail))
+                throw new ArgumentNullException();
+
+            User friendUser = FindByEmail(friendEmail);
+            if (user is null)
+                throw new UserNotFoundException();
+            List<FriendEntity> friendEntities = friendRepository.FindAllByUserId(friendUser.Id)
+            ///чтобы найти Friend.ID необходимо
+            ///1. найти User.ID
+            ///2. FriendRepository.FindAllByUserId.Where(friend_id = User.ID(из п.1)) .ID
+            //if (friendRepository.Delete(userRepository.FindByEmail(friendEmail).id) == 0)
+            if (friendRepository.Delete(fr) == 0)
                 throw new Exception();
+
         }
         private Friend ConstructFriendModel(FriendEntity friendEntity)
         {

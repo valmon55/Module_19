@@ -15,7 +15,7 @@ namespace SocialNetwork.BLL.Services
     public class UserService
     {
         MessageService messageService;
-        IUserRepository userRepository;
+        public IUserRepository userRepository;
         public UserService()
         {
             userRepository = new UserRepository();

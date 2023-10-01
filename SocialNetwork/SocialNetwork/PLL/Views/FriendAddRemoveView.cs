@@ -1,5 +1,6 @@
 ﻿using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
+using SocialNetwork.DAL.Entities;
 using SocialNetwork.PLL.Helpers;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,18 @@ namespace SocialNetwork.PLL.Views
             }
             catch(Exception e) 
             { 
+                AlertMessage.Show("Error: " + e.Message);
+            }
+        }
+        public void Remove(User user, string friendEmail)
+        {
+            try
+            {
+                //friendService.RemoveFriend(user, friendEmail);
+                SuccessMessage.Show($"Друг с {friendEmail} успешно добавлен.");
+            }
+            catch (Exception e)
+            {
                 AlertMessage.Show("Error: " + e.Message);
             }
         }

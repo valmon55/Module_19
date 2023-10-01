@@ -31,14 +31,14 @@ namespace SocialNetwork.PLL.Views
                 {
                     case "1":
                         {
-                            Console.WriteLine("Введите почтовый адрес:");
-                            var friendEmail = Console.ReadLine();
-                            Program.friendAddRemoveView.Add(user,friendEmail);
+                            Console.WriteLine("Введите почтовый адрес пользователя для добавление в друзья:");
+                            Program.friendAddRemoveView.Add(user, Console.ReadLine());
                             break;
                         }
                     case "2":
                         {
-                            //Program.userFriendEditView.Show(user);
+                            Console.WriteLine("Введите почтовый адрес друга для удаления из друзей:");
+                            Program.friendAddRemoveView.Remove(user, Console.ReadLine());
                             break;
                         }
                 }
