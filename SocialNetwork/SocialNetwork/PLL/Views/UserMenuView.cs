@@ -46,6 +46,11 @@ namespace SocialNetwork.PLL.Views
                             Program.userDataUpdateView.Show(user);
                             break;
                         }
+                    case "3":
+                        {
+                            //Program.userFriendView.
+                            break;
+                        }
 
                     case "4":
                         {
