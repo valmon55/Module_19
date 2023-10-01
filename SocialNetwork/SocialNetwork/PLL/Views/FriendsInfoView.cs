@@ -18,14 +18,17 @@ namespace SocialNetwork.PLL.Views
         public void Show(User user)
         {
             var friends = friendService.ShowFriends(user);
+            User friendUser;
             if (friends.Count() == 0)
                 Console.WriteLine($"{user.FirstName}, у вас нет друзей.");
             else
             {
-                Console.WriteLine("{user.FirstName}, ваши друзья:");
+                Console.WriteLine($"{user.FirstName}, ваши друзья:");
                 foreach (Friend friend in friends)
                 {
-                    Console.WriteLine($"ID = {friend.Id} USER_ID = {friend.User_id} FRIEND_ID = {friend.Friend_id}");
+                    friendUser = friendService.FindById(friend.Friend_id);
+                    //Console.WriteLine($"ID = {friend.Id} USER_ID = {friend.User_id} FRIEND_ID = {friend.Friend_id}");
+                    Console.WriteLine($"FirstName = {friendUser.FirstName} LastName = {friendUser.LastName}");
                 }
             }
         }
