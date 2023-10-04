@@ -67,16 +67,28 @@ namespace SocialNetwork.BLL.Services
         {
             if (!new EmailAddressAttribute().IsValid(friendEmail))
                 throw new ArgumentNullException();
-
+            ///получаем пользователя - друга
             User friendUser = FindByEmail(friendEmail);
-            if (user is null)
+            if (friendUser is null)
                 throw new UserNotFoundException();
-            List<FriendEntity> friendEntities = friendRepository.FindAllByUserId(friendUser.Id)
+            int? friendEntityId = null;
+            ///получаем список FriendEntity
+            var friends = friendRepository.FindAllByUserId(user.Id);
+            foreach(var friend in friends) 
+            { 
+                if(ConstructFriendModel(friend).Friend_id == friendUser.Id)
+                {
+                    friendEntityId = friend.id; 
+                    break;
+                }
+            }
+            if (friendEntityId is null)
+                throw new FriendNotFoundException();                            
             ///чтобы найти Friend.ID необходимо
             ///1. найти User.ID
             ///2. FriendRepository.FindAllByUserId.Where(friend_id = User.ID(из п.1)) .ID
             //if (friendRepository.Delete(userRepository.FindByEmail(friendEmail).id) == 0)
-            if (friendRepository.Delete(fr) == 0)
+            if (friendRepository.Delete((int)friendEntityId) == 0)
                 throw new Exception();
 
         }

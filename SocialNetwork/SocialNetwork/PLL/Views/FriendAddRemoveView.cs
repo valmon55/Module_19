@@ -1,4 +1,5 @@
-﻿using SocialNetwork.BLL.Models;
+﻿using SocialNetwork.BLL.Exceptions;
+using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
 using SocialNetwork.DAL.Entities;
 using SocialNetwork.PLL.Helpers;
@@ -34,8 +35,12 @@ namespace SocialNetwork.PLL.Views
         {
             try
             {
-                //friendService.RemoveFriend(user, friendEmail);
-                SuccessMessage.Show($"Друг с {friendEmail} успешно добавлен.");
+                friendService.RemoveFriend(user, friendEmail);
+                SuccessMessage.Show($"Друг с {friendEmail} успешно удален.");
+            }
+            catch (UserNotFoundException)
+            {
+                AlertMessage.Show("Error: " + e.Message);
             }
             catch (Exception e)
             {
