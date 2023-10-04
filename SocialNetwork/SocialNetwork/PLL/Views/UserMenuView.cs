@@ -24,7 +24,7 @@ namespace SocialNetwork.PLL.Views
 
                 Console.WriteLine("Просмотреть информацию о моём профиле (нажмите 1)");
                 Console.WriteLine("Редактировать мой профиль (нажмите 2)");
-                Console.WriteLine("Добавить в друзья (нажмите 3)");
+                Console.WriteLine("Мои друзья (нажмите 3)");
                 Console.WriteLine("Написать сообщение (нажмите 4)");
                 Console.WriteLine("Просмотреть входящие сообщения (нажмите 5)");
                 Console.WriteLine("Просмотреть исходящие сообщения (нажмите 6)");

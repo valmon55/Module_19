@@ -26,7 +26,11 @@ namespace SocialNetwork.PLL.Views
                 friendService.AddFriend(user, friendEmail);
                 SuccessMessage.Show($"Друг с {friendEmail} успешно добавлен.");
             }
-            catch(Exception e) 
+            catch (UserNotFoundException)
+            {
+                AlertMessage.Show("Пользователь не найден!");
+            }
+            catch (Exception e) 
             { 
                 AlertMessage.Show("Error: " + e.Message);
             }
@@ -40,7 +44,11 @@ namespace SocialNetwork.PLL.Views
             }
             catch (UserNotFoundException)
             {
-                AlertMessage.Show("Error: " + e.Message);
+                AlertMessage.Show("Пользователь не найден!");
+            }
+            catch (FriendNotFoundException)
+            {
+                AlertMessage.Show("Друг не найден!");
             }
             catch (Exception e)
             {
