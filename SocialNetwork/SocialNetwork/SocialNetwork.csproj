@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DAL\BD\**" />
+    <EmbeddedResource Remove="DAL\BD\**" />
+    <None Remove="DAL\BD\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.151" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
   </ItemGroup>
@@ -16,10 +22,6 @@
     <None Update="DAL\DB\social_network_bd.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DAL\BD\" />
   </ItemGroup>
 
 </Project>
