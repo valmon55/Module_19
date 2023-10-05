@@ -18,10 +18,4 @@
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="DAL\DB\social_network_bd.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
