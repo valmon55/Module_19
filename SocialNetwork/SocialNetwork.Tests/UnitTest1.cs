@@ -1,3 +1,4 @@
+using SocialNetwork.BLL.Exceptions;
 using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
 
@@ -29,15 +30,23 @@ namespace SocialNetwork.Tests
         public void AddUser()
         {
             string email = "PJ@cbi.gov";
-            var user = userService.FindByEmail(email);
-            if (user is null)
+            User? user = null;
+            try
             {
-                UserRegistrationData userRegistrationData = new UserRegistrationData();
-                userRegistrationData.FirstName = "Patric";
-                userRegistrationData.LastName = "Jane";
-                userRegistrationData.Email = email;
-                userRegistrationData.Password = "12341234";
-                userService.Register(userRegistrationData);
+                user = userService.FindByEmail(email);
+            }
+            catch (UserNotFoundException)
+            {
+                if (user is null)
+                {
+                    UserRegistrationData userRegistrationData = new UserRegistrationData();
+                    userRegistrationData.FirstName = "Patric";
+                    userRegistrationData.LastName = "Jane";
+                    userRegistrationData.Email = email;
+                    userRegistrationData.Password = "12341234";
+                    userService.Register(userRegistrationData);
+                }
+                user = userService.FindByEmail(email);
             }
             Assert.That(user.FirstName == "Patric" && user.LastName == "Jane");            
         }
