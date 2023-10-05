@@ -13,7 +13,7 @@ namespace SocialNetwork.PLL.Views
 {
     public class FriendAddRemoveView
     {
-        FriendService friendService;
+        private FriendService friendService;
         public FriendAddRemoveView(FriendService friendService)
         {
             this.friendService = friendService;

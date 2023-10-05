@@ -12,7 +12,7 @@ namespace SocialNetwork.PLL.Views
     public class UserDataUpdateView
     {
         UserService userService;
-        public UserDataUpdateView(UserService userService)
+        internal UserDataUpdateView(UserService userService)
         {
             this.userService = userService;
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork.DAL.Repositories
 {
-    public class MessageRepository : BaseRepository, IMessageRepository
+    internal class MessageRepository : BaseRepository, IMessageRepository
     {
         public int Create(MessageEntity messageEntity)
         {

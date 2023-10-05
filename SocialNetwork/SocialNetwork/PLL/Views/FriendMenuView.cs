@@ -21,7 +21,7 @@ namespace SocialNetwork.PLL.Views
                 Console.WriteLine("* Добавить друга (нажмите 1)");
                 Console.WriteLine("* Удалить из друзей (нажмите 2)");
 
-                Console.WriteLine("Выйти из профиля (нажмите 3)");
+                Console.WriteLine("Выйти из раздела Мои друзья (нажмите 3)");
 
                 string keyValue = Console.ReadLine();
 

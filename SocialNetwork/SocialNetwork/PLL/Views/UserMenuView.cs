@@ -11,7 +11,7 @@ namespace SocialNetwork.PLL.Views
     public class UserMenuView
     {
         UserService userService;
-        public UserMenuView(UserService userService)
+        internal UserMenuView(UserService userService)
         {
             this.userService = userService;
         }

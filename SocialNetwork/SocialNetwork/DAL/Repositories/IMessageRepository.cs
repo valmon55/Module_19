@@ -9,9 +9,9 @@ namespace SocialNetwork.DAL.Repositories
 {
     public interface IMessageRepository
     {
-        int Create(MessageEntity messageEntity);
-        IEnumerable<MessageEntity> FindBySenderId(int senderId);
-        IEnumerable<MessageEntity> FindByRecipientId(int recipientId);
-        int DeleteById(int messageId);
+        public int Create(MessageEntity messageEntity);
+        public IEnumerable<MessageEntity> FindBySenderId(int senderId);
+        public IEnumerable<MessageEntity> FindByRecipientId(int recipientId);
+        public int DeleteById(int messageId);
     }
 }

@@ -14,8 +14,8 @@ namespace SocialNetwork.BLL.Services
 {
     public class UserService
     {
-        MessageService messageService;
-        public IUserRepository userRepository;
+        private MessageService messageService;
+        private IUserRepository userRepository;
         public UserService()
         {
             userRepository = new UserRepository();
@@ -49,7 +49,7 @@ namespace SocialNetwork.BLL.Services
             if( this.userRepository.Create(userEntity) == 0)
                 throw new Exception();
         }
-        public User Authenticate(UserAuthenticationData userAuthenticationData)
+        internal User Authenticate(UserAuthenticationData userAuthenticationData)
         {
             var findUserEntity = userRepository.FindByEmail(userAuthenticationData.Email);
 
@@ -58,7 +58,7 @@ namespace SocialNetwork.BLL.Services
 
             return ConstructUserModel(findUserEntity);
         }
-        public User FindByEmail(string email) 
+        private protected User FindByEmail(string email) 
         {
             var findUserEntity = userRepository.FindByEmail(email);
             if (findUserEntity is null) throw new UserNotFoundException();
@@ -72,7 +72,6 @@ namespace SocialNetwork.BLL.Services
 
             return ConstructUserModel(findUserEntity);
         }
-
         public void Update(User user)
         {
             var updatableUserEntity = new UserEntity()

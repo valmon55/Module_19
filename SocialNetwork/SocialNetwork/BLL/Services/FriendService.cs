@@ -14,7 +14,7 @@ namespace SocialNetwork.BLL.Services
 {
     public class FriendService : UserService
     {
-        IFriendRepository friendRepository;
+        private IFriendRepository friendRepository;
         public FriendService()
         {
             friendRepository = new FriendRepository();
@@ -39,7 +39,7 @@ namespace SocialNetwork.BLL.Services
         /// <param name="user"></param>
         /// <param name="friendEmail"></param>
         /// <exception cref="UserNotFoundException"></exception>
-        public void AddFriend(User user, string friendEmail)
+        internal void AddFriend(User user, string friendEmail)
         {
             if (!new EmailAddressAttribute().IsValid(friendEmail))
                 throw new ArgumentNullException();
@@ -63,7 +63,7 @@ namespace SocialNetwork.BLL.Services
                     throw new Exception();
             }
         }
-        public void RemoveFriend(User user, string friendEmail)
+        internal void RemoveFriend(User user, string friendEmail)
         {
             if (!new EmailAddressAttribute().IsValid(friendEmail))
                 throw new ArgumentNullException();

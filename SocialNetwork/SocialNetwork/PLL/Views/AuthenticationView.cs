@@ -12,7 +12,7 @@ namespace SocialNetwork.PLL.Views
 {
     public class AuthenticationView
     {
-        UserService userService;
+        private UserService userService;
         public AuthenticationView(UserService userService)
         {
             this.userService = userService;

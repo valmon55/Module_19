@@ -11,7 +11,7 @@ namespace SocialNetwork.PLL.Views
     public class FriendsInfoView
     {
         FriendService friendService;
-        public FriendsInfoView(FriendService friendService) 
+        internal FriendsInfoView(FriendService friendService) 
         { 
             this.friendService = friendService;
         }
