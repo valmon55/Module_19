@@ -49,7 +49,7 @@ namespace SocialNetwork.BLL.Services
             if( this.userRepository.Create(userEntity) == 0)
                 throw new Exception();
         }
-        internal User Authenticate(UserAuthenticationData userAuthenticationData)
+        public User Authenticate(UserAuthenticationData userAuthenticationData)
         {
             var findUserEntity = userRepository.FindByEmail(userAuthenticationData.Email);
 
@@ -58,7 +58,7 @@ namespace SocialNetwork.BLL.Services
 
             return ConstructUserModel(findUserEntity);
         }
-        private protected User FindByEmail(string email) 
+        public User FindByEmail(string email) 
         {
             var findUserEntity = userRepository.FindByEmail(email);
             if (findUserEntity is null) throw new UserNotFoundException();
